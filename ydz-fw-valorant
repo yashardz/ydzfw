@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=auto, initial-scale=1.0">
+    <title>Team Showcase</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .team-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .team-member {
+            background: transparent;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 150px;
+        }
+        .team-member img {
+            width: 100%;
+            border-radius: 50%;
+            height: auto;
+        }
+        .name {
+            font-weight: bold;
+            margin: 10px 0 5px;
+        }
+        .role {
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .socials a {
+            margin: 0 5px;
+            color: #555;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .socials a:hover {
+            color: #e8e8e8;
+        }
+        @media (max-width: 768px) {
+            .team-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="team-container">
+        <div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/6/6a/Raze_VALORANT_Portrait.png" alt="Team Member 1">
+            <div class="name">Kross Unity</div>
+            <div class="role">Initiator</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/7/7a/Jett_VALORANT_Portrait.png" alt="Team Member 2">
+            <div class="name">Jett</div>
+            <div class="role">Duelist</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/0/01/Neon_VALORANT_Portrait.png" alt="Team Member 3">
+            <div class="name">Neon</div>
+            <div class="role">Duelist</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+<div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/d/dd/Clove_VALORANT_Portrait.png" alt="Team Member 4">
+            <div class="name">Clove</div>
+            <div class="role">Controller</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div><div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/d/d7/Sova_VALORANT_Portrait.png/" alt="Team Member 5">
+            <div class="name">Sova</div>
+            <div class="role">Initiator</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div><div class="team-member">
+            <img src="https://static.wikia.nocookie.net/valorant/images/a/a2/Cypher_VALORANT_Portrait.png" alt="Team Member 6">
+            <div class="name">Cypher</div>
+            <div class="role">Sentinel</div>
+            <div class="socials">
+                <a href="https://x.com/krossvalorant"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://twitch.tv/krossunity1"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://tiktok.com/krossunity1"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div><div class="team-member">
+            <img src="https://cdn.discordapp.com/attachments/1282851630596755540/1312932173375869010/IMG_20240401_213819_694.jpg?ex=67ae885f&is=67ad36df&hm=828b80f0ba5cb0c4dc237e100e862234cdad0d6bf7a51fd6fa77f3350859c613&" alt="Team Member 7">
+            <div class="name">Bryan "Shadyy" DeRouen</div>
+            <div class="role">Coach</div>
+            <div class="socials">
+                <a href="https://x.com/ShadyyVAL"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
