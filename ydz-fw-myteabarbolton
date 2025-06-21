@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery with Lightbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111;
+      color: #fff;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 350px;
+      object-fit: cover
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+    .lightbox .close, .lightbox .prev, .lightbox .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .lightbox .close {
+      top: 10px;
+      right: 20px;
+      transform: none;
+    }
+    .lightbox .prev { left: 10px; }
+    .lightbox .next { right: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="gallery">
+  <!-- ðŸ–¼ï¸ Add your image URLs here -->
+  <img src="https://storage.googleapis.com/popshopprod-shop-renderer-creators-assets/resources/96c1752a-4fa4-4175-9793-c587737b1325/8b619717adca0e8387c9db46143db116_e21cd075dd88.png" alt="Image 1">
+  <img src="https://imgproxy.fourthwall.com/uu_n4qGi2uDiCTQSqODnlbg9g4-xF4I8dL2nGEuH-28/w:1400/sm:1/enc/N2ExNWJlM2JhNzdl/ZDgyM3XOjlDJ9_os/1MPWNn54cRvtfSZp/BMl0gt-H1uutTEuf/w1vw668ct8iaHoU5/INyWcz4dWaDIGigy/TYdVJhz_0YxQ-OSX/V2jg-Hv0k7jHXvHg/LxV-XhhIFfQEgbLV/OUOAqTpmyB0l8Pd5/VTaeRKj9etZ98_LQ/5pR3C09DtZoTVO5O/adhYK9WHCmcOXS5P/Z-r5Qb77j3O-tS4q/yKyagbLnbG7LjrZ3/7R-fg_9dpv_kqV7I.webp" alt="Image 2">
+  <img src="https://imgproxy.fourthwall.com/wwMsCrLwfjYLdp0ZW9pEyEdkhLmVDZqOnqxAAoPCvwY/w:1400/sm:1/enc/MWQzNThjMTIwYzgw/ZDU2YSCMhLPv1t88/PHCk1jPnwiQVmDUa/6T3Y_2908BxpydkJ/ECuTHQBUhtuTqcl8/rp6PKjWR8aongto6/usHC2qmquF61Pt4D/nIhsGn2PUx9xLPph/cyzXvMuIYSSwKwu7/sLlG0o-mY4EnKjxf/pJCix6olPKuJXOBS/uBDe15cSH2NZegY8/XMwPDNQsG6dgT1l_/I-I5OT79_TbbVmpG/SpYarwUTwEFv7RSU/uvJfqDr0e_NqNP3s.webp" alt="Image 3">
+  <img src="https://imgproxy.fourthwall.com/1hd4eQtiFSaL-OykpxqgmbsQEEy2HupiNlDMGaqzslM/w:1400/sm:1/enc/ZTUyYjM3NGJmMmU3/MTRjY5qq6MvNGnM6/v5rhqDxEXDOGJDmX/PVEuiiBvztI4I4Uw/xO5KCaJFhTR4c8nU/_g1b4qG-HWaCA1VS/0dYaeWkLqhjDyf8B/NgiLCtarWXtB8jrP/3JCQW_2uzfz-3EJb/QSKkVG9t_BBU2k0h/xQ5HkNWlqKNgdzGJ/9brQjjWNo-QhTWLZ/6gjtrgdrQrbzf-Em/C-7GGOWvfT_DDDVj/tNNUp8SbNPD33s94/SIBPnUhKh32cdXkW.webp" alt="Image 4">
+  <img src="https://imgproxy.fourthwall.com/iiMebvVaqBuZaVV4AJ_qv0odQwL2i1RWh-P36LpVILA/w:1400/sm:1/enc/MDhiNzllZmZhMTlj/MDE1NbGfe51C53yb/g3NeqvT9FqlwVw-W/kDQqcTyzMFYlzkcA/yOZV5jaWxJQmVSMt/Lc1W19jhErW3heHT/BQcAoit-uP2eei7Q/3AcDqo4WqAMzDYBv/P1o65edIIUYHwts6/9q4onJrTL6W7A7eh/m6bXYwkfYWn2nPlM/UW16iAKaEZbLjCOe/qHu6TjRzn0zs-mHu/ETVv2k6B3ubKReKi/o89ziETJOpR5I9gq/tp7XPNBwasa7ztod.webp" alt="Image 4">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">âœ–</span>
+  <span class="prev" onclick="changeImage(-1)">â®</span>
+  <img id="lightbox-img" src="" alt="Lightbox Image">
+  <span class="next" onclick="changeImage(1)">â¯</span>
+</div>
+
+<script>
+  const images = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      openLightbox(img.src);
+    });
+  });
+
+  function openLightbox(src) {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = src;
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function changeImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  }
+</script>
+
+</body>
+</html>
